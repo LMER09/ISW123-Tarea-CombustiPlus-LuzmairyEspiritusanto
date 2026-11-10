@@ -6,5 +6,10 @@ namespace CombustiPlus
         {
             InitializeComponent();
         }
+
+        private void cmbCombustible_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
