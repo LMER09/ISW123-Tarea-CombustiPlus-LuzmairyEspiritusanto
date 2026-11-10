@@ -7,8 +7,33 @@ namespace CombustiPlus
             InitializeComponent();
         }
 
-        private void cmbCombustible_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnCotizar_Click(object sender, EventArgs e)
         {
+            if (txtPlaca.Text.Length != 7)
+            {
+                MessageBox.Show("La Placa debe tener 7 caracteres. \nEjemplo: A123456");
+                return;
+            }
+            if (nudGalones.Value == 0)
+            {
+                MessageBox.Show("Los galones deben ser mayor que cero");
+                return;
+            }
+
+        }
+
+        private void btnDespachar_Click(object sender, EventArgs e)
+        {
+            if (txtPlaca.Text.Length != 7)
+            {
+                MessageBox.Show("La Placa debe tener 7 caracteres. \nEjemplo: A123456");
+                return;
+            }
+            if (nudGalones.Value == 0)
+            {
+                MessageBox.Show("Los galones deben ser mayor que cero");
+                return;
+            }
 
         }
     }

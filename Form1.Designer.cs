@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             gbNuevoDespacho = new GroupBox();
-            lblPlaca = new Label();
-            txtPlaca = new TextBox();
-            lblCombustible = new Label();
-            cmbCombustible = new ComboBox();
-            lblGalones = new Label();
-            nudGalones = new NumericUpDown();
-            lblPago = new Label();
-            cmbPago = new ComboBox();
-            btnCotizar = new Button();
             btnDespachar = new Button();
+            btnCotizar = new Button();
+            cmbPago = new ComboBox();
+            lblPago = new Label();
+            nudGalones = new NumericUpDown();
+            lblGalones = new Label();
+            cmbCombustible = new ComboBox();
+            lblCombustible = new Label();
+            txtPlaca = new TextBox();
+            lblPlaca = new Label();
             gbDetalle = new GroupBox();
             lstDetalle = new ListBox();
             gbDespachos = new GroupBox();
+            btnPorCombustible = new Button();
             lstDespachos = new ListBox();
-            btnPor = new Button();
             lblResumen = new Label();
             gbNuevoDespacho.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudGalones).BeginInit();
@@ -72,75 +72,27 @@
             gbNuevoDespacho.TabStop = false;
             gbNuevoDespacho.Text = "Nuevo despacho";
             // 
-            // lblPlaca
+            // btnDespachar
             // 
-            lblPlaca.AutoSize = true;
-            lblPlaca.Location = new Point(8, 52);
-            lblPlaca.Margin = new Padding(4, 0, 4, 0);
-            lblPlaca.Name = "lblPlaca";
-            lblPlaca.Size = new Size(54, 23);
-            lblPlaca.TabIndex = 0;
-            lblPlaca.Text = "Placa:";
+            btnDespachar.Location = new Point(280, 252);
+            btnDespachar.Margin = new Padding(4, 3, 4, 3);
+            btnDespachar.Name = "btnDespachar";
+            btnDespachar.Size = new Size(232, 48);
+            btnDespachar.TabIndex = 9;
+            btnDespachar.Text = "Despachar";
+            btnDespachar.UseVisualStyleBackColor = true;
+            btnDespachar.Click += btnDespachar_Click;
             // 
-            // txtPlaca
+            // btnCotizar
             // 
-            txtPlaca.BorderStyle = BorderStyle.FixedSingle;
-            txtPlaca.Location = new Point(158, 44);
-            txtPlaca.Margin = new Padding(4, 3, 4, 3);
-            txtPlaca.Name = "txtPlaca";
-            txtPlaca.Size = new Size(354, 30);
-            txtPlaca.TabIndex = 1;
-            // 
-            // lblCombustible
-            // 
-            lblCombustible.AutoSize = true;
-            lblCombustible.Location = new Point(8, 106);
-            lblCombustible.Margin = new Padding(4, 0, 4, 0);
-            lblCombustible.Name = "lblCombustible";
-            lblCombustible.Size = new Size(110, 23);
-            lblCombustible.TabIndex = 2;
-            lblCombustible.Text = "Combustible:";
-            // 
-            // cmbCombustible
-            // 
-            cmbCombustible.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbCombustible.FormattingEnabled = true;
-            cmbCombustible.Items.AddRange(new object[] { "Premium", "Regular", "Gasoil" });
-            cmbCombustible.Location = new Point(158, 98);
-            cmbCombustible.Margin = new Padding(4, 3, 4, 3);
-            cmbCombustible.Name = "cmbCombustible";
-            cmbCombustible.Size = new Size(354, 31);
-            cmbCombustible.TabIndex = 3;
-            cmbCombustible.SelectedIndexChanged += cmbCombustible_SelectedIndexChanged;
-            // 
-            // lblGalones
-            // 
-            lblGalones.AutoSize = true;
-            lblGalones.Location = new Point(8, 160);
-            lblGalones.Margin = new Padding(4, 0, 4, 0);
-            lblGalones.Name = "lblGalones";
-            lblGalones.Size = new Size(75, 23);
-            lblGalones.TabIndex = 4;
-            lblGalones.Text = "Galones:";
-            // 
-            // nudGalones
-            // 
-            nudGalones.BorderStyle = BorderStyle.FixedSingle;
-            nudGalones.Location = new Point(158, 153);
-            nudGalones.Margin = new Padding(4, 3, 4, 3);
-            nudGalones.Name = "nudGalones";
-            nudGalones.Size = new Size(188, 30);
-            nudGalones.TabIndex = 5;
-            // 
-            // lblPago
-            // 
-            lblPago.AutoSize = true;
-            lblPago.Location = new Point(8, 214);
-            lblPago.Margin = new Padding(4, 0, 4, 0);
-            lblPago.Name = "lblPago";
-            lblPago.Size = new Size(53, 23);
-            lblPago.TabIndex = 6;
-            lblPago.Text = "Pago:";
+            btnCotizar.Location = new Point(8, 252);
+            btnCotizar.Margin = new Padding(4, 3, 4, 3);
+            btnCotizar.Name = "btnCotizar";
+            btnCotizar.Size = new Size(232, 48);
+            btnCotizar.TabIndex = 8;
+            btnCotizar.Text = "Cotizar";
+            btnCotizar.UseVisualStyleBackColor = true;
+            btnCotizar.Click += btnCotizar_Click;
             // 
             // cmbPago
             // 
@@ -153,25 +105,74 @@
             cmbPago.Size = new Size(354, 31);
             cmbPago.TabIndex = 7;
             // 
-            // btnCotizar
+            // lblPago
             // 
-            btnCotizar.Location = new Point(8, 252);
-            btnCotizar.Margin = new Padding(4, 3, 4, 3);
-            btnCotizar.Name = "btnCotizar";
-            btnCotizar.Size = new Size(232, 48);
-            btnCotizar.TabIndex = 8;
-            btnCotizar.Text = "Cotizar";
-            btnCotizar.UseVisualStyleBackColor = true;
+            lblPago.AutoSize = true;
+            lblPago.Location = new Point(8, 214);
+            lblPago.Margin = new Padding(4, 0, 4, 0);
+            lblPago.Name = "lblPago";
+            lblPago.Size = new Size(53, 23);
+            lblPago.TabIndex = 6;
+            lblPago.Text = "Pago:";
             // 
-            // btnDespachar
+            // nudGalones
             // 
-            btnDespachar.Location = new Point(280, 252);
-            btnDespachar.Margin = new Padding(4, 3, 4, 3);
-            btnDespachar.Name = "btnDespachar";
-            btnDespachar.Size = new Size(232, 48);
-            btnDespachar.TabIndex = 9;
-            btnDespachar.Text = "Despachar";
-            btnDespachar.UseVisualStyleBackColor = true;
+            nudGalones.BorderStyle = BorderStyle.FixedSingle;
+            nudGalones.Location = new Point(158, 153);
+            nudGalones.Margin = new Padding(4, 3, 4, 3);
+            nudGalones.Name = "nudGalones";
+            nudGalones.Size = new Size(188, 30);
+            nudGalones.TabIndex = 5;
+            // 
+            // lblGalones
+            // 
+            lblGalones.AutoSize = true;
+            lblGalones.Location = new Point(8, 160);
+            lblGalones.Margin = new Padding(4, 0, 4, 0);
+            lblGalones.Name = "lblGalones";
+            lblGalones.Size = new Size(75, 23);
+            lblGalones.TabIndex = 4;
+            lblGalones.Text = "Galones:";
+            // 
+            // cmbCombustible
+            // 
+            cmbCombustible.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCombustible.FormattingEnabled = true;
+            cmbCombustible.Items.AddRange(new object[] { "Premium", "Regular", "Gasoil" });
+            cmbCombustible.Location = new Point(158, 98);
+            cmbCombustible.Margin = new Padding(4, 3, 4, 3);
+            cmbCombustible.Name = "cmbCombustible";
+            cmbCombustible.Size = new Size(354, 31);
+            cmbCombustible.TabIndex = 3;
+            // 
+            // lblCombustible
+            // 
+            lblCombustible.AutoSize = true;
+            lblCombustible.Location = new Point(8, 106);
+            lblCombustible.Margin = new Padding(4, 0, 4, 0);
+            lblCombustible.Name = "lblCombustible";
+            lblCombustible.Size = new Size(110, 23);
+            lblCombustible.TabIndex = 2;
+            lblCombustible.Text = "Combustible:";
+            // 
+            // txtPlaca
+            // 
+            txtPlaca.BorderStyle = BorderStyle.FixedSingle;
+            txtPlaca.Location = new Point(158, 44);
+            txtPlaca.Margin = new Padding(4, 3, 4, 3);
+            txtPlaca.Name = "txtPlaca";
+            txtPlaca.Size = new Size(354, 30);
+            txtPlaca.TabIndex = 1;
+            // 
+            // lblPlaca
+            // 
+            lblPlaca.AutoSize = true;
+            lblPlaca.Location = new Point(8, 52);
+            lblPlaca.Margin = new Padding(4, 0, 4, 0);
+            lblPlaca.Name = "lblPlaca";
+            lblPlaca.Size = new Size(54, 23);
+            lblPlaca.TabIndex = 0;
+            lblPlaca.Text = "Placa:";
             // 
             // gbDetalle
             // 
@@ -197,7 +198,7 @@
             // 
             // gbDespachos
             // 
-            gbDespachos.Controls.Add(btnPor);
+            gbDespachos.Controls.Add(btnPorCombustible);
             gbDespachos.Controls.Add(lstDespachos);
             gbDespachos.Location = new Point(581, 28);
             gbDespachos.Margin = new Padding(4, 3, 4, 3);
@@ -208,6 +209,16 @@
             gbDespachos.TabStop = false;
             gbDespachos.Text = "Despachos del dia";
             // 
+            // btnPorCombustible
+            // 
+            btnPorCombustible.Location = new Point(19, 386);
+            btnPorCombustible.Margin = new Padding(4, 3, 4, 3);
+            btnPorCombustible.Name = "btnPorCombustible";
+            btnPorCombustible.Size = new Size(232, 48);
+            btnPorCombustible.TabIndex = 10;
+            btnPorCombustible.Text = "Galones por combustible";
+            btnPorCombustible.UseVisualStyleBackColor = true;
+            // 
             // lstDespachos
             // 
             lstDespachos.FormattingEnabled = true;
@@ -217,16 +228,6 @@
             lstDespachos.Name = "lstDespachos";
             lstDespachos.Size = new Size(825, 349);
             lstDespachos.TabIndex = 1;
-            // 
-            // btnPor
-            // 
-            btnPor.Location = new Point(19, 386);
-            btnPor.Margin = new Padding(4, 3, 4, 3);
-            btnPor.Name = "btnPor";
-            btnPor.Size = new Size(232, 48);
-            btnPor.TabIndex = 10;
-            btnPor.Text = "Galones por combustible";
-            btnPor.UseVisualStyleBackColor = true;
             // 
             // lblResumen
             // 
@@ -276,7 +277,7 @@
         private GroupBox gbDetalle;
         private ListBox lstDetalle;
         private GroupBox gbDespachos;
-        private Button btnPor;
+        private Button btnPorCombustible;
         private ListBox lstDespachos;
         private Label lblResumen;
     }
