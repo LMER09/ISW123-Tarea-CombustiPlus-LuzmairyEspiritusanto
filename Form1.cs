@@ -88,16 +88,16 @@
             if (galones >= 20)
             {
                 total -= total * 0.02m;
-                
+
             }
             if (cmbPago.Text == "Tarjeta")
             {
                 total += total * 0.03m;
-                
+
             }
 
             int numero = despachos.Count + 1;
-            Despacho d = new Despacho(numero, txtPlaca.Text, cmbCombustible.Text, 
+            Despacho d = new Despacho(numero, txtPlaca.Text, cmbCombustible.Text,
                 galones, cmbPago.Text, total);
             despachos.Add(d);
 
@@ -112,7 +112,7 @@
             {
                 lstDespachos.Items.Add(x.ToString());
                 totalVendido = totalVendido + x.Total;
-               galonesTotales = galonesTotales + x.Galones;
+                galonesTotales = galonesTotales + x.Galones;
 
                 if (x.Total > mayor.Total)
                 {
@@ -122,6 +122,31 @@
 
             lblResumen.Text = $"{despachos.Count} despachos - Vendido RD$ {totalVendido:N2} - " +
                 $"Galones: {galonesTotales} - Mayor: #{mayor.Numero:00} {mayor.Placa} (RD$ {mayor.Total:N2})";
+
+        }
+
+        private void btnPorCombustible_Click(object sender, EventArgs e)
+        {
+            Dictionary<string, decimal> galonesPorCombustible = new Dictionary<string, decimal>();
+
+            foreach (Despacho x in despachos)
+            {
+                if (galonesPorCombustible.ContainsKey(x.Combustible))
+                {
+                    galonesPorCombustible[x.Combustible] += x.Galones;
+                }
+                else
+                {
+                    galonesPorCombustible[x.Combustible] = x.Galones;
+                }
+            }
+
+            lstDetalle.Items.Clear();
+
+            foreach (string combustible in galonesPorCombustible.Keys)
+            {
+                lstDetalle.Items.Add($"{combustible}: {galonesPorCombustible[combustible]} gal");
+            }
 
         }
     }

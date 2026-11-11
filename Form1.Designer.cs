@@ -74,7 +74,8 @@
             // 
             // btnDespachar
             // 
-            btnDespachar.Location = new Point(280, 252);
+            btnDespachar.FlatStyle = FlatStyle.Flat;
+            btnDespachar.Location = new Point(281, 252);
             btnDespachar.Margin = new Padding(4, 3, 4, 3);
             btnDespachar.Name = "btnDespachar";
             btnDespachar.Size = new Size(232, 48);
@@ -85,7 +86,8 @@
             // 
             // btnCotizar
             // 
-            btnCotizar.Location = new Point(8, 252);
+            btnCotizar.FlatStyle = FlatStyle.Flat;
+            btnCotizar.Location = new Point(9, 252);
             btnCotizar.Margin = new Padding(4, 3, 4, 3);
             btnCotizar.Name = "btnCotizar";
             btnCotizar.Size = new Size(232, 48);
@@ -118,6 +120,7 @@
             // nudGalones
             // 
             nudGalones.BorderStyle = BorderStyle.FixedSingle;
+            nudGalones.DecimalPlaces = 2;
             nudGalones.Location = new Point(158, 153);
             nudGalones.Margin = new Padding(4, 3, 4, 3);
             nudGalones.Name = "nudGalones";
@@ -181,19 +184,20 @@
             gbDetalle.Margin = new Padding(4, 3, 4, 3);
             gbDetalle.Name = "gbDetalle";
             gbDetalle.Padding = new Padding(4, 3, 4, 3);
-            gbDetalle.Size = new Size(544, 207);
+            gbDetalle.Size = new Size(544, 187);
             gbDetalle.TabIndex = 1;
             gbDetalle.TabStop = false;
             gbDetalle.Text = "Detalle";
             // 
             // lstDetalle
             // 
+            lstDetalle.BorderStyle = BorderStyle.FixedSingle;
             lstDetalle.FormattingEnabled = true;
             lstDetalle.ItemHeight = 23;
-            lstDetalle.Location = new Point(8, 41);
+            lstDetalle.Location = new Point(8, 29);
             lstDetalle.Margin = new Padding(4, 3, 4, 3);
             lstDetalle.Name = "lstDetalle";
-            lstDetalle.Size = new Size(528, 142);
+            lstDetalle.Size = new Size(528, 140);
             lstDetalle.TabIndex = 0;
             // 
             // gbDespachos
@@ -204,35 +208,38 @@
             gbDespachos.Margin = new Padding(4, 3, 4, 3);
             gbDespachos.Name = "gbDespachos";
             gbDespachos.Padding = new Padding(4, 3, 4, 3);
-            gbDespachos.Size = new Size(852, 444);
+            gbDespachos.Size = new Size(719, 423);
             gbDespachos.TabIndex = 2;
             gbDespachos.TabStop = false;
             gbDespachos.Text = "Despachos del dia";
             // 
             // btnPorCombustible
             // 
-            btnPorCombustible.Location = new Point(19, 386);
+            btnPorCombustible.FlatStyle = FlatStyle.Flat;
+            btnPorCombustible.Location = new Point(20, 362);
             btnPorCombustible.Margin = new Padding(4, 3, 4, 3);
             btnPorCombustible.Name = "btnPorCombustible";
             btnPorCombustible.Size = new Size(232, 48);
             btnPorCombustible.TabIndex = 10;
             btnPorCombustible.Text = "Galones por combustible";
             btnPorCombustible.UseVisualStyleBackColor = true;
+            btnPorCombustible.Click += btnPorCombustible_Click;
             // 
             // lstDespachos
             // 
+            lstDespachos.BorderStyle = BorderStyle.FixedSingle;
             lstDespachos.FormattingEnabled = true;
             lstDespachos.ItemHeight = 23;
             lstDespachos.Location = new Point(19, 30);
             lstDespachos.Margin = new Padding(4, 3, 4, 3);
             lstDespachos.Name = "lstDespachos";
-            lstDespachos.Size = new Size(825, 349);
+            lstDespachos.Size = new Size(683, 324);
             lstDespachos.TabIndex = 1;
             // 
             // lblResumen
             // 
             lblResumen.AutoSize = true;
-            lblResumen.Location = new Point(581, 475);
+            lblResumen.Location = new Point(581, 463);
             lblResumen.Margin = new Padding(4, 0, 4, 0);
             lblResumen.Name = "lblResumen";
             lblResumen.Size = new Size(81, 23);
@@ -243,7 +250,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1454, 591);
+            ClientSize = new Size(1321, 591);
             Controls.Add(lblResumen);
             Controls.Add(gbDespachos);
             Controls.Add(gbDetalle);

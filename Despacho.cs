@@ -23,7 +23,7 @@ namespace CombustiPlus
         }
         public override string ToString()
         {
-            return $"#{Numero} - {Placa} - {Combustible} - " +
+            return $"#{Numero:00} - {Placa} - {Combustible} - " +
                  $"{Galones:N2} gal - {Pago} -  RD${Total:N2}";
         }
 
