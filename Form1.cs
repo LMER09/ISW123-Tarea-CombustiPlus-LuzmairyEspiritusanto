@@ -1,7 +1,8 @@
-namespace CombustiPlus
+﻿namespace CombustiPlus
 {
     public partial class Form1 : Form
     {
+        private List<Despacho> despachos = new List<Despacho>();
         public Form1()
         {
             InitializeComponent();
@@ -38,16 +39,16 @@ namespace CombustiPlus
             decimal total = galones * precio;
 
             lstDetalle.Items.Clear();
-            lstDetalle.Items.Add($"{galones} gal � RD$ {precio:N2} = RD$ {total:N2}");
+            lstDetalle.Items.Add($"{galones} gal × RD$ {precio:N2} = RD$ {total:N2}");
 
             if (galones >= 20)
             {
-                total = total - total * 0.02m;
-                lstDetalle.Items.Add($"Descuento 20+ galones ?2 %: RD$ {total:N2}");
+                total -= total * 0.02m;
+                lstDetalle.Items.Add($"Descuento 20+ galones −2 %: RD$ {total:N2}");
             }
             if (cmbPago.Text == "Tarjeta")
             {
-                total = total + total * 0.03m;
+                total += total * 0.03m;
                 lstDetalle.Items.Add($"Tarjeta +3 %: RD$ {total:N2}");
             }
 
@@ -66,6 +67,61 @@ namespace CombustiPlus
                 MessageBox.Show("Los galones deben ser mayor que cero");
                 return;
             }
+
+            decimal precio = 0;
+
+            switch (cmbCombustible.Text)
+            {
+                case "Regular":
+                    precio = 272;
+                    break;
+                case "Premium":
+                    precio = 290;
+                    break;
+                case "Gasoil":
+                    precio = 225;
+                    break;
+            }
+            decimal galones = nudGalones.Value;
+            decimal total = galones * precio;
+
+            if (galones >= 20)
+            {
+                total -= total * 0.02m;
+                
+            }
+            if (cmbPago.Text == "Tarjeta")
+            {
+                total += total * 0.03m;
+                
+            }
+
+            int numero = despachos.Count + 1;
+            Despacho d = new Despacho(numero, txtPlaca.Text, cmbCombustible.Text, 
+                galones, cmbPago.Text, total);
+            despachos.Add(d);
+
+            lstDespachos.Items.Clear();
+
+            decimal totalVendido = 0;
+            decimal galonesTotales = 0;
+
+            Despacho mayor = d;
+
+            foreach (Despacho x in despachos)
+            {
+                lstDespachos.Items.Add(x.ToString());
+                totalVendido = totalVendido + x.Total;
+               galonesTotales = galonesTotales + x.Galones;
+
+                if (x.Total > mayor.Total)
+                {
+                    mayor = x;
+                }
+            }
+
+            lblResumen.Text = $"{despachos.Count} despachos - Vendido RD$ {totalVendido:N2} - " +
+                $"Galones: {galonesTotales} - Mayor: #{mayor.Numero:00} {mayor.Placa} (RD$ {mayor.Total:N2})";
 
         }
     }
